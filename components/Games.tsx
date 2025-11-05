@@ -22,7 +22,7 @@ export default function Games() {
   ]
 
   return (
-    <section id="games" className="min-h-screen flex flex-col items-center justify-center px-4 md:px-6 py-16 md:py-24">
+    <section id="games" className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-6 py-16 md:py-24 bg-black">
       <div className="w-full max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">

@@ -16,9 +16,9 @@ export default function YouTubeVideo({
   videoId, 
   title, 
   className = '',
-  autoplay = false,
+  autoplay = true,
   muted = false,
-  loop = false,
+  loop = true,
   controls = true,
 }: YouTubeVideoProps) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -33,8 +33,8 @@ export default function YouTubeVideo({
   })
 
   return (
-    <div className={`relative w-full ${className}`}>
-      <div className="relative w-full aspect-video bg-black overflow-hidden rounded-sm">
+    <div className={`relative ${className}`}>
+      <div className="relative w-full h-full bg-black overflow-hidden" style={{ width: '100%', height: '100%' }}>
         {!isLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-black">
             <div className="animate-pulse text-white/50">Loading...</div>
@@ -42,6 +42,11 @@ export default function YouTubeVideo({
         )}
         <iframe
           className="absolute inset-0 w-full h-full"
+          style={{ 
+            width: '100%', 
+            height: '100%',
+            objectFit: 'cover'
+          }}
           src={`https://www.youtube.com/embed/${videoId}?${params.toString()}`}
           title={title || 'YouTube video player'}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

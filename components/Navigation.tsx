@@ -14,10 +14,10 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold">
+          <div className="text-2xl font-bold drop-shadow-lg">
             PYROPIXEL STUDIO
           </div>
           
@@ -26,14 +26,14 @@ export default function Navigation() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors"
+                className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md"
               >
                 {item.label}
               </a>
             ))}
             <button
               onClick={() => setIsJapanese(!isJapanese)}
-              className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors"
+              className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md"
             >
               {isJapanese ? 'English' : '日本語'}
             </button>
@@ -57,7 +57,7 @@ export default function Navigation() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors"
+                className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md"
               >
                 {item.label}
               </a>
@@ -67,7 +67,7 @@ export default function Navigation() {
                 setIsJapanese(!isJapanese)
                 setIsOpen(false)
               }}
-              className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors text-left"
+              className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors text-left drop-shadow-md"
             >
               {isJapanese ? 'English' : '日本語'}
             </button>
