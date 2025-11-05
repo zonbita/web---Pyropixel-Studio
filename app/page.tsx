@@ -56,7 +56,7 @@ export default function Home() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition-colors z-50"
+          className="fixed bottom-8 right-8 bg-white text-black py-2 rounded-full hover:bg-gray-200 transition-colors z-50"
           aria-label="Scroll to top"
         >
           Top

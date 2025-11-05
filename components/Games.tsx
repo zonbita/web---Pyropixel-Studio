@@ -14,7 +14,7 @@ export default function Games() {
   }
 
   return (
-    <section id="games" className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 md:py-24 bg-black">
+    <section id="games" className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-24 bg-black">
       <div className="w-full mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">

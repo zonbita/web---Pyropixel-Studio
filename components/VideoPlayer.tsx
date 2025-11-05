@@ -85,7 +85,7 @@ export default function VideoPlayer({
       )}
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
-          <div className="text-white/70 text-center px-4">
+          <div className="text-white/70 text-center">
             <p>{error}</p>
             <p className="text-sm mt-2 opacity-50">Video path: {src}</p>
           </div>
