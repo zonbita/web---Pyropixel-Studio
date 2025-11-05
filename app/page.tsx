@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
-import YouTubeVideo from '@/components/YouTubeVideo'
+import VideoPlayer from '@/components/VideoPlayer'
 import Games from '@/components/Games'
 import AboutUs from '@/components/AboutUs'
 import Jobs from '@/components/Jobs'
@@ -12,9 +12,9 @@ import Footer from '@/components/Footer'
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
-  // Video ID for home section - replace with your YouTube video ID
-  // Example: For URL https://www.youtube.com/watch?v=VIDEO_ID, use only 'VIDEO_ID'
-  const homeVideoId = 'q3Syszp9HVw' // Paste your YouTube video ID here (e.g., 'dQw4w9WgXcQ')
+  // Video MP4 path - can be local file in public folder or external URL
+  // Example: '/videos/background.mp4' for local file or 'https://example.com/video.mp4' for external
+  const homeVideoSrc = '/videos/background.mp4' // Replace with your video path
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,9 +32,8 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white relative">
       {/* Background Video - Behind Navigation and Hero */}
       <div className="fixed top-0 left-0 w-screen h-screen z-0">
-        <YouTubeVideo 
-          videoId={homeVideoId}
-          title="Pyropixel Studio Introduction"
+        <VideoPlayer 
+          src={homeVideoSrc}
           className="w-screen h-screen"
           autoplay={true}
           muted={true}
@@ -42,7 +41,7 @@ export default function Home() {
           controls={false}
         />
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20 z-10" />
       </div>
 
       {/* Content above video */}
