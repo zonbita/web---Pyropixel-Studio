@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-6 pt-24 pb-16">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16">
       {/* Content */}
       <div className="relative z-20 text-center w-full max-w-5xl mx-auto">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-8 tracking-tight px-4 drop-shadow-lg">
