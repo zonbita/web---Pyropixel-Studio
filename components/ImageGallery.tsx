@@ -27,11 +27,11 @@ export default function ImageGallery({ images, columns = 3, className = '' }: Im
   }
 
   return (
-    <div className={`grid ${gridCols[columns]} gap-4 md:gap-6 ${className}`}>
+    <div className={`grid ${gridCols[columns]} gap-3 md:gap-4 lg:gap-6 w-full ${className}`}>
       {images.map((image, index) => (
         <div
           key={index}
-          className="relative aspect-video bg-gray-900 overflow-hidden group cursor-pointer"
+          className="relative w-full aspect-[4/3] bg-gray-900 overflow-hidden group cursor-pointer"
         >
           {!loadedImages.has(index) && (
             <div className="absolute inset-0 flex items-center justify-center">
@@ -42,7 +42,7 @@ export default function ImageGallery({ images, columns = 3, className = '' }: Im
             src={image.src}
             alt={image.alt}
             fill
-            className={`object-cover transition-transform duration-500 group-hover:scale-110 ${
+            className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
               loadedImages.has(index) ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setLoadedImages((prev) => new Set(prev).add(index))}

@@ -22,30 +22,33 @@ export default function Games() {
   ]
 
   return (
-    <section id="games" className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8">GAMES</h2>
-          <p className="text-xl md:text-2xl mb-12 opacity-90">CHECK OUT OUR WORK</p>
+    <section id="games" className="min-h-screen flex flex-col items-center justify-center px-4 md:px-6 py-16 md:py-24">
+      <div className="w-full max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight">GAMES</h2>
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-90">CHECK OUT OUR WORK</p>
         </div>
 
-        {/* Featured Video */}
-        <div className="mb-16">
+        {/* Featured Video - Full Width */}
+        <div className="mb-12 md:mb-16 w-full">
           <YouTubeVideo 
             videoId={featuredVideoId}
             title="Featured Game Trailer"
-            className="max-w-4xl mx-auto"
+            className="w-full"
           />
         </div>
 
-        {/* Game Screenshots Gallery */}
-        <div className="mb-12">
+        {/* Game Screenshots Gallery - Full Width Grid */}
+        <div className="mb-8 md:mb-12 w-full">
           <ImageGallery 
             images={gameImages}
             columns={3}
+            className="w-full"
           />
         </div>
 
+        {/* More Button */}
         <div className="text-center">
           <a
             href="#games"

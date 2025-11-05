@@ -18,21 +18,24 @@ export default function Jobs() {
   ]
 
   return (
-    <section id="jobs" className="min-h-screen flex flex-col items-center justify-center px-6 py-24">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8">JOBS</h2>
-          <p className="text-xl md:text-2xl mb-12 opacity-90">JOIN US</p>
+    <section id="jobs" className="min-h-screen flex flex-col items-center justify-center px-4 md:px-6 py-16 md:py-24">
+      <div className="w-full max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight">JOBS</h2>
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-90">JOIN US</p>
         </div>
 
-        {/* Office/Culture Images */}
-        <div className="mb-12">
+        {/* Office/Culture Images - Full Width Grid */}
+        <div className="mb-8 md:mb-12 w-full">
           <ImageGallery 
             images={officeImages}
             columns={3}
+            className="w-full"
           />
         </div>
 
+        {/* More Button */}
         <div className="text-center">
           <a
             href="#jobs"

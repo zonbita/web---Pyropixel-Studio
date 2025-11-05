@@ -34,9 +34,9 @@ export default function YouTubeVideo({
 
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="relative aspect-video bg-black overflow-hidden">
+      <div className="relative w-full aspect-video bg-black overflow-hidden rounded-sm">
         {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center bg-black">
             <div className="animate-pulse text-white/50">Loading...</div>
           </div>
         )}
