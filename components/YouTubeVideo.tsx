@@ -29,7 +29,15 @@ export default function YouTubeVideo({
     ...(autoplay && { autoplay: '1' }),
     ...(muted && { mute: '1' }),
     ...(loop && { loop: '1', playlist: videoId }),
-    ...(!controls && { controls: '0' }),
+    ...(!controls && { 
+      controls: '0',
+      showinfo: '0',
+      iv_load_policy: '3',
+      disablekb: '1',
+      fs: '0',
+      cc_load_policy: '0',
+      playsinline: '1'
+    }),
   })
 
   return (
