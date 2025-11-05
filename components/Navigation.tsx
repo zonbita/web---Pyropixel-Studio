@@ -1,35 +1,40 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isJapanese, setIsJapanese] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Games', href: '#games' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Jobs', href: '#jobs' },
+    { label: 'Home', href: '/' },
+    { label: 'Games', href: '/games' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Jobs', href: '/jobs' },
   ]
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="w-full mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold drop-shadow-lg">
+          <Link href="/" className="text-2xl font-bold drop-shadow-lg">
             PYROPIXEL STUDIO
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md"
+                className={`text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md ${
+                  pathname === item.href ? 'text-gray-300' : ''
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <button
               onClick={() => setIsJapanese(!isJapanese)}
@@ -53,14 +58,16 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md"
+                className={`text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md ${
+                  pathname === item.href ? 'text-gray-300' : ''
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <button
               onClick={() => {
