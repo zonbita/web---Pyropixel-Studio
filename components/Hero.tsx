@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import HeroVideoBackground from './HeroVideoBackground'
+import { useLanguage } from '@/components/LanguageProvider'
 
 interface HeroProps {
   isPageReady?: boolean
@@ -9,6 +10,7 @@ interface HeroProps {
 
 export default function Hero({ isPageReady = false }: HeroProps) {
   const [isTextVisible, setIsTextVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     if (!isPageReady) return
@@ -40,7 +42,7 @@ export default function Hero({ isPageReady = false }: HeroProps) {
           />
         </p>
         <h1 className="mt-3 text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
-          WE&apos;RE ALL ABOUT PLAY!
+          {t.hero.tagline}
         </h1>
       </div>
 
@@ -50,7 +52,7 @@ export default function Hero({ isPageReady = false }: HeroProps) {
         className={`absolute bottom-8 left-1/2 z-10 -translate-x-1/2 cursor-pointer transition-opacity duration-300 hover:opacity-30 md:bottom-10 ${
           isTextVisible ? 'hero-text-loaded' : 'hero-text-hidden'
         }`}
-        aria-label="Scroll to content"
+        aria-label={t.common.scrollToContent}
       >
         <svg
           viewBox="0 0 40 22"

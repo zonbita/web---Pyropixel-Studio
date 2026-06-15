@@ -1,42 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import LoadingCover from '@/components/LoadingCover'
 import SectionPreview from '@/components/SectionPreview'
 import Footer from '@/components/Footer'
+import { useLanguage } from '@/components/LanguageProvider'
+import { homePreviewSlides } from '@/lib/homePreviewImages'
 
 export default function Home() {
-  const [showScrollTop, setShowScrollTop] = useState(false)
   const [isPageReady, setIsPageReady] = useState(false)
-
-  const gamesPreview = {
-    src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1600&h=900&fit=crop',
-    alt: 'Games Preview',
-  }
-
-  const aboutPreview = {
-    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop',
-    alt: 'About Us Preview',
-  }
-
-  const jobsPreview = {
-    src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=900&fit=crop',
-    alt: 'Jobs Preview',
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  const { t } = useLanguage()
 
   return (
     <main className="min-h-screen bg-black text-white relative">
@@ -45,33 +20,24 @@ export default function Home() {
       <Hero isPageReady={isPageReady} />
       <SectionPreview
         id="games-preview"
-        title="GAMES"
-        subtitle="CHECK OUT OUR WORK"
+        title={t.home.gamesTitle}
+        subtitle={t.home.gamesSubtitle}
         href="/games"
-        image={gamesPreview}
+        slides={homePreviewSlides.games}
       />
       <SectionPreview
-        title="ABOUT US"
-        subtitle="MEET THE TEAM"
+        title={t.home.aboutTitle}
+        subtitle={t.home.aboutSubtitle}
         href="/about"
-        image={aboutPreview}
+        slides={homePreviewSlides.about}
       />
       <SectionPreview
-        title="JOBS"
-        subtitle="JOIN US"
+        title={t.home.jobsTitle}
+        subtitle={t.home.jobsSubtitle}
         href="/jobs"
-        image={jobsPreview}
+        slides={homePreviewSlides.jobs}
       />
       <Footer />
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-white text-black py-2 rounded-full hover:bg-gray-200 transition-colors z-50"
-          aria-label="Scroll to top"
-        >
-          Top
-        </button>
-      )}
     </main>
   )
 }

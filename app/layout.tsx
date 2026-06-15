@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import { ReactNode } from 'react'
+import Providers from '@/components/Providers'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -11,7 +12,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'Pyropixel Studio',
-  description: 'We\'re all about play!',
+  description: 'Chúng tôi yêu thích trò chơi!',
 }
 
 export default function RootLayout({
@@ -20,9 +21,10 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+    <html lang="vi">
+      <body className={montserrat.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
-

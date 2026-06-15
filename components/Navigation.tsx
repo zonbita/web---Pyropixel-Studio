@@ -4,19 +4,22 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useScrollHeader } from '@/hooks/useScrollHeader'
+import { useLanguage } from '@/components/LanguageProvider'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isJapanese, setIsJapanese] = useState(false)
   const pathname = usePathname()
   const { isHidden, hasBackground } = useScrollHeader()
+  const { locale, t, toggleLocale } = useLanguage()
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Games', href: '/games' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Jobs', href: '/jobs' },
+    { label: t.nav.home, href: '/' },
+    { label: t.nav.games, href: '/games' },
+    { label: t.nav.about, href: '/about' },
+    { label: t.nav.jobs, href: '/jobs' },
   ]
+
+  const languageLabel = locale === 'vi' ? t.lang.switchToEn : t.lang.switchToVi
 
   return (
     <nav
@@ -29,7 +32,7 @@ export default function Navigation() {
           <Link href="/" className="text-2xl font-bold drop-shadow-lg">
             PYROPIXEL STUDIO
           </Link>
-          
+
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
@@ -43,17 +46,18 @@ export default function Navigation() {
               </Link>
             ))}
             <button
-              onClick={() => setIsJapanese(!isJapanese)}
-              className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md"
+              type="button"
+              onClick={toggleLocale}
+              className="text-sm font-bold tracking-wider text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-opacity duration-300 hover:opacity-30"
             >
-              {isJapanese ? 'English' : '日本語'}
+              {languageLabel}
             </button>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden flex flex-col gap-1.5"
-            aria-label="Toggle menu"
+            aria-label={t.common.toggleMenu}
           >
             <span className={`w-6 h-0.5 bg-white transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
             <span className={`w-6 h-0.5 bg-white transition-all ${isOpen ? 'opacity-0' : ''}`} />
@@ -76,13 +80,14 @@ export default function Navigation() {
               </Link>
             ))}
             <button
+              type="button"
               onClick={() => {
-                setIsJapanese(!isJapanese)
+                toggleLocale()
                 setIsOpen(false)
               }}
-              className="text-sm uppercase tracking-wider hover:text-gray-300 transition-colors text-left drop-shadow-md"
+              className="text-sm font-bold tracking-wider text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-opacity duration-300 hover:opacity-30 text-left"
             >
-              {isJapanese ? 'English' : '日本語'}
+              {languageLabel}
             </button>
           </div>
         )}
@@ -90,4 +95,3 @@ export default function Navigation() {
     </nav>
   )
 }
-
