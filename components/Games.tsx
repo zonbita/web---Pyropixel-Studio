@@ -44,7 +44,7 @@ export default function Games() {
         </div>
 
         <div className="text-center">
-          <MoreButton href="#games" label={t.common.more} />
+          <MoreButton href="/games/galaxy-chronicle" label={t.common.more} />
         </div>
       </div>
     </section>

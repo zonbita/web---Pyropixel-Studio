@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useScrollHeader } from '@/hooks/useScrollHeader'
 import { useLanguage } from '@/components/LanguageProvider'
+import Logo from '@/components/Logo'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,8 +30,8 @@ export default function Navigation() {
     >
       <div className="w-full mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold drop-shadow-lg">
-            PYROPIXEL STUDIO
+          <Link href="/" className="drop-shadow-lg">
+            <Logo className="h-8 w-auto md:h-10" priority />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

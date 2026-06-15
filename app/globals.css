@@ -40,10 +40,10 @@ body {
 
 @keyframes logo-beat {
   from {
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
   }
   to {
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: scale(1.05);
   }
 }
 
@@ -170,5 +170,14 @@ body {
   .more-button {
     width: 240px;
   }
+}
+
+.game-screenshots-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.game-screenshots-scroll::-webkit-scrollbar {
+  display: none;
 }
 

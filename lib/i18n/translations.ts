@@ -37,6 +37,15 @@ export type TranslationKeys = {
     trailerTitle: string
     screenshotAlt: string
   }
+  gameDetail: {
+    screenshots: string
+    platform: string
+    releaseDate: string
+    publisher: string
+    genre: string
+    players: string
+    ratings: string
+  }
   about: {
     title: string
     subtitle: string
@@ -105,6 +114,15 @@ export const translations: Record<Locale, TranslationKeys> = {
       trailerTitle: 'Trailer game nổi bật',
       screenshotAlt: 'Ảnh chụp game',
     },
+    gameDetail: {
+      screenshots: 'ẢNH CHỤP MÀN HÌNH',
+      platform: 'NỀN TẢNG',
+      releaseDate: 'NGÀY PHÁT HÀNH',
+      publisher: 'NHÀ PHÁT HÀNH',
+      genre: 'THỂ LOẠI',
+      players: 'SỐ NGƯỜI CHƠI',
+      ratings: 'XẾP HẠNG',
+    },
     about: {
       title: 'VỀ CHÚNG TÔI',
       subtitle: 'GẶP GỠ ĐỘI NGŨ',
@@ -172,6 +190,15 @@ export const translations: Record<Locale, TranslationKeys> = {
       pageContent: "Discover the amazing games we've created.",
       trailerTitle: 'Featured Game Trailer',
       screenshotAlt: 'Game screenshot',
+    },
+    gameDetail: {
+      screenshots: 'SCREENSHOTS',
+      platform: 'PLATFORM',
+      releaseDate: 'RELEASE DATE',
+      publisher: 'PUBLISHER',
+      genre: 'GENRE',
+      players: 'PLAYERS',
+      ratings: 'RATINGS',
     },
     about: {
       title: 'ABOUT US',
