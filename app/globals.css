@@ -17,9 +17,6 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #000000;
@@ -28,5 +25,89 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logo-beat {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Loading cover slide-up fade */
+.loading-cover-bg {
+  transition: transform 0.7s cubic-bezier(0.16, 0.82, 0.27, 0.97) 0.4s;
+}
+
+.loading-cover-logo {
+  transition: opacity 0s linear 0.4s, transform 0.7s cubic-bezier(0.6, -0.51, 0.6, 0.91);
+}
+
+.loading-cover-hide .loading-cover-bg {
+  transform: translateY(-100%);
+}
+
+.loading-cover-hide .loading-cover-logo {
+  opacity: 0;
+}
+
+.loading-cover-pulse {
+  animation: logo-beat 1s ease-in-out infinite alternate;
+}
+
+/* Hero text fade-in (matches Team Asobi #mv .text) */
+.hero-text-hidden {
+  opacity: 0;
+  transform: translateY(30%);
+  transition:
+    transform 1.5s cubic-bezier(0.1, 0.75, 0.4, 0.95) 1s,
+    opacity 1.5s cubic-bezier(0.1, 0.75, 0.4, 0.95) 1s;
+}
+
+.hero-text-loaded {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 1.5s cubic-bezier(0.1, 0.75, 0.4, 0.95) 1s,
+    opacity 1.5s cubic-bezier(0.1, 0.75, 0.4, 0.95) 1s;
+}
+
+/* Section inview staggered fade */
+.inview-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    transform 1.5s cubic-bezier(0.1, 0.75, 0.4, 0.95),
+    opacity 1.5s cubic-bezier(0.1, 0.75, 0.4, 0.95);
+}
+
+.inview-item.inview-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.inview-delay-1 {
+  transition-delay: 0.2s;
+}
+
+.inview-delay-2 {
+  transition-delay: 0.3s;
+}
+
+.inview-delay-3 {
+  transition-delay: 0.4s;
 }
 

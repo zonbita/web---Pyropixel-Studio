@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useScrollHeader } from '@/hooks/useScrollHeader'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isJapanese, setIsJapanese] = useState(false)
   const pathname = usePathname()
+  const { isHidden, hasBackground } = useScrollHeader()
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -17,7 +19,11 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.1,0.75,0.4,0.95)] ${
+        isHidden ? '-translate-y-full' : 'translate-y-0'
+      } ${hasBackground ? 'bg-[#111]/95 backdrop-blur-sm' : 'bg-transparent'}`}
+    >
       <div className="w-full mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold drop-shadow-lg">

@@ -1,16 +1,65 @@
-export default function Hero() {
+'use client'
+
+import { useEffect, useState } from 'react'
+import HeroVideoBackground from './HeroVideoBackground'
+
+interface HeroProps {
+  isPageReady?: boolean
+}
+
+export default function Hero({ isPageReady = false }: HeroProps) {
+  const [isTextVisible, setIsTextVisible] = useState(false)
+
+  useEffect(() => {
+    if (!isPageReady) return
+    setIsTextVisible(true)
+  }, [isPageReady])
+
+  const scrollToContent = () => {
+    document.getElementById('games-preview')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16">
-      {/* Content */}
-      <div className="relative z-20 text-center w-full max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-8 tracking-tight drop-shadow-lg">
+    <section id="home" className="relative h-screen w-full overflow-hidden">
+      <HeroVideoBackground isPageReady={isPageReady} />
+
+      <div
+        className={`absolute z-10 flex w-full flex-col items-center justify-center px-5 text-center text-white ${
+          isTextVisible ? 'hero-text-loaded' : 'hero-text-hidden'
+        }`}
+        style={{ top: '42vh', paddingBottom: '30px' }}
+      >
+        <p className="relative mb-3 inline-block pb-4 text-xl font-bold tracking-wide md:text-2xl lg:text-4xl">
+          PYROPIXEL STUDIO
+          <span
+            className="absolute bottom-0 left-0 h-0.5 w-full"
+            style={{
+              background:
+                'linear-gradient(90deg, rgb(0, 203, 240) 0%, rgb(200, 100, 250) 33%, rgb(255, 87, 64) 66%, rgb(255, 187, 0) 100%)',
+            }}
+          />
+        </p>
+        <h1 className="mt-3 text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
           WE&apos;RE ALL ABOUT PLAY!
         </h1>
-        <div className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-90 drop-shadow-md">
-          PYROPIXEL STUDIO
-        </div>
       </div>
+
+      <button
+        type="button"
+        onClick={scrollToContent}
+        className={`absolute bottom-8 left-1/2 z-10 -translate-x-1/2 cursor-pointer transition-opacity duration-300 hover:opacity-30 md:bottom-10 ${
+          isTextVisible ? 'hero-text-loaded' : 'hero-text-hidden'
+        }`}
+        aria-label="Scroll to content"
+      >
+        <svg
+          viewBox="0 0 40 22"
+          className="h-5 w-10 stroke-white stroke-[4] fill-none md:h-6 md:w-12"
+          aria-hidden="true"
+        >
+          <polyline points="2,2 20,20 38,2" />
+        </svg>
+      </button>
     </section>
   )
 }
-
