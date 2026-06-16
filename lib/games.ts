@@ -17,15 +17,24 @@ export type GameMeta = {
   ratings: LocalizedText
 }
 
+export type GameStoreLinks = {
+  steam: string
+  playstation: string
+  nintendo: string
+}
+
 export type Game = {
   slug: string
   title: string
   description: LocalizedText
   heroVideo?: string
   heroPoster?: string
+  logoImage?: string
+  logoAlt?: string
   screenshots: GameScreenshot[]
   meta: GameMeta
   storeUrl?: string
+  stores: GameStoreLinks
 }
 
 const slider = (filename: string, alt: string): GameScreenshot => ({
@@ -43,6 +52,8 @@ export const GAMES: Game[] = [
     },
     heroVideo: '/videos/background.mp4',
     heroPoster: '/videos/illustration.jpg',
+    logoImage: '/videos/LOGO2 1.png',
+    logoAlt: 'Galaxy Chronicle: Echoes of Stearone',
     screenshots: [
       slider('582290225_798385386365728_2558834946497418310_n 3.png', 'Galaxy Chronicle gameplay'),
       slider('photo_2026-05-25_12-39-45 (2).jpg', 'Galaxy Chronicle world'),
@@ -58,6 +69,11 @@ export const GAMES: Game[] = [
       ratings: { vi: 'Mọi lứa tuổi', en: 'Everyone' },
     },
     storeUrl: '#',
+    stores: {
+      steam: '#',
+      playstation: '#',
+      nintendo: '#',
+    },
   },
   {
     slug: 'the-junk-squad',
@@ -89,6 +105,11 @@ export const GAMES: Game[] = [
       ratings: { vi: '18+', en: 'Mature' },
     },
     storeUrl: '#',
+    stores: {
+      steam: '#',
+      playstation: '#',
+      nintendo: '#',
+    },
   },
 ]
 

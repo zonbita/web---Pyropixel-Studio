@@ -31,7 +31,7 @@ export default function GamesPage() {
         title={t.home.aboutTitle}
         subtitle={t.home.aboutSubtitle}
         href="/games/the-junk-squad"
-        slides={homePreviewSlides.about}
+        slides={homePreviewSlides.junkSquad}
       />
       <Footer />
     </main>

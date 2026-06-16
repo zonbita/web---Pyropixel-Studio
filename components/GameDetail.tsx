@@ -1,6 +1,6 @@
 'use client'
 
-import { type ReactNode } from 'react'
+import { type ReactNode, useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import VideoPlayer from '@/components/VideoPlayer'
 import BackgroundImage from '@/components/BackgroundImage'
@@ -29,18 +29,6 @@ function InviewBlock({
     >
       {children}
     </div>
-  )
-}
-
-function SectionTitle({ children }: { children: ReactNode }) {
-  return (
-    <h2 className="brand-gradient-text relative inline-block pb-4 text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-      {children}
-      <span
-        className="brand-gradient-line absolute bottom-0 left-0 h-0.5 w-full"
-        aria-hidden="true"
-      />
-    </h2>
   )
 }
 
@@ -105,9 +93,21 @@ function GameDetailDescription({ game }: { game: Game }) {
     <section
       id="game-description"
       ref={ref}
-      className="relative flex min-h-[70vh] flex-col items-center justify-center bg-black px-6 py-20 md:px-12 md:py-32"
+      className="relative flex min-h-screen flex-col items-center justify-center bg-black px-6 py-20 md:px-12"
     >
       <InviewBlock isVisible={isVisible} delay="1" className="mx-auto max-w-4xl text-center">
+        {game.logoImage && (
+          <div className="relative mx-auto mb-10 h-40 w-full max-w-3xl md:mb-12 md:h-56 lg:h-64">
+            <Image
+              src={game.logoImage}
+              alt={game.logoAlt ?? game.title}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 90vw, 768px"
+              unoptimized
+            />
+          </div>
+        )}
         <p className="text-base leading-relaxed opacity-90 md:text-lg lg:text-xl">
           {game.description[locale]}
         </p>
@@ -116,43 +116,115 @@ function GameDetailDescription({ game }: { game: Game }) {
   )
 }
 
-function GameDetailScreenshots({ game }: { game: Game }) {
-  const { ref, isVisible } = useInView(0.15)
-  const { t } = useLanguage()
-
-  if (game.screenshots.length === 0) return null
+function ScreenshotNavButton({
+  direction,
+  onClick,
+  label,
+}: {
+  direction: 'prev' | 'next'
+  onClick: () => void
+  label: string
+}) {
+  const positionClass = direction === 'prev' ? 'left-4 md:left-8' : 'right-4 md:right-8'
 
   return (
-    <section
-      ref={ref}
-      className="relative bg-black px-6 py-20 md:px-12 md:py-32"
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      className={`absolute top-1/2 z-10 ${positionClass} -translate-y-1/2 rounded-full border border-white/40 bg-black/40 p-3 text-white transition-opacity duration-300 hover:opacity-60 md:p-4`}
     >
-      <InviewBlock isVisible={isVisible} delay="1" className="mb-10 text-center md:mb-16">
-        <SectionTitle>{t.gameDetail.screenshots}</SectionTitle>
-      </InviewBlock>
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5 fill-none stroke-current stroke-[2] md:h-6 md:w-6"
+        aria-hidden="true"
+      >
+        {direction === 'prev' ? (
+          <polyline points="15,4 7,12 15,20" />
+        ) : (
+          <polyline points="9,4 17,12 9,20" />
+        )}
+      </svg>
+    </button>
+  )
+}
 
-      <div className="game-screenshots-scroll mx-auto flex max-w-6xl snap-x snap-mandatory gap-4 overflow-x-auto pb-4 md:gap-6">
-        {game.screenshots.map((shot, index) => (
-          <InviewBlock
-            key={shot.src}
-            isVisible={isVisible}
-            delay={index % 3 === 0 ? '1' : index % 3 === 1 ? '2' : '3'}
-            className="w-[85vw] shrink-0 snap-center md:w-[70vw] lg:w-[55vw]"
-          >
-            <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
-              <Image
-                src={shot.src}
-                alt={shot.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 85vw, 55vw"
-                unoptimized
-              />
-            </div>
-          </InviewBlock>
-        ))}
-      </div>
+function GameDetailScreenshots({ game }: { game: Game }) {
+  const { locale } = useLanguage()
+  const [activeIndex, setActiveIndex] = useState(0)
+  const screenshots = game.screenshots
+  const total = screenshots.length
+
+  const goToPrevious = useCallback(() => {
+    setActiveIndex((current) => (current - 1 + total) % total)
+  }, [total])
+
+  const goToNext = useCallback(() => {
+    setActiveIndex((current) => (current + 1) % total)
+  }, [total])
+
+  useEffect(() => {
+    if (total <= 1) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') goToPrevious()
+      if (event.key === 'ArrowRight') goToNext()
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [goToNext, goToPrevious, total])
+
+  if (total === 0) return null
+
+  const previousLabel = locale === 'vi' ? 'Ảnh trước' : 'Previous image'
+  const nextLabel = locale === 'vi' ? 'Ảnh sau' : 'Next image'
+
+  return (
+    <section className="relative h-screen w-full overflow-hidden bg-black">
+      {screenshots.map((shot, index) => (
+        <div
+          key={shot.src}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            index === activeIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          aria-hidden={index !== activeIndex}
+        >
+          <Image
+            src={shot.src}
+            alt={shot.alt}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority={index === activeIndex}
+            unoptimized
+          />
+        </div>
+      ))}
+
+      {total > 1 && (
+        <>
+          <ScreenshotNavButton direction="prev" onClick={goToPrevious} label={previousLabel} />
+          <ScreenshotNavButton direction="next" onClick={goToNext} label={nextLabel} />
+        </>
+      )}
     </section>
+  )
+}
+
+function StoreLinkButton({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex w-full items-center justify-between border-2 border-[#d3410b] px-4 py-3 text-sm font-bold text-white transition-colors duration-300 hover:bg-[#d3410b] md:px-5 md:py-4 md:text-base"
+    >
+      <span>{label}</span>
+      <span className="pl-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
+        &gt;
+      </span>
+    </a>
   )
 }
 
@@ -167,6 +239,12 @@ function GameDetailMeta({ game }: { game: Game }) {
     { label: t.gameDetail.genre, value: game.meta.genre[locale] },
     { label: t.gameDetail.players, value: game.meta.players },
     { label: t.gameDetail.ratings, value: game.meta.ratings[locale] },
+  ]
+
+  const storeLinks = [
+    { href: game.stores.steam, label: t.gameDetail.viewOnSteam },
+    { href: game.stores.playstation, label: t.gameDetail.viewOnPlayStation },
+    { href: game.stores.nintendo, label: t.gameDetail.viewOnNintendo },
   ]
 
   return (
@@ -190,6 +268,14 @@ function GameDetailMeta({ game }: { game: Game }) {
           </InviewBlock>
         ))}
       </div>
+
+      <InviewBlock isVisible={isVisible} delay="3" className="mx-auto mt-14 max-w-5xl md:mt-16">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+          {storeLinks.map((store) => (
+            <StoreLinkButton key={store.label} href={store.href} label={store.label} />
+          ))}
+        </div>
+      </InviewBlock>
     </section>
   )
 }

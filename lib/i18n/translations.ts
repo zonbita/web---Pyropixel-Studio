@@ -45,6 +45,9 @@ export type TranslationKeys = {
     genre: string
     players: string
     ratings: string
+    viewOnSteam: string
+    viewOnPlayStation: string
+    viewOnNintendo: string
   }
   about: {
     title: string
@@ -122,6 +125,9 @@ export const translations: Record<Locale, TranslationKeys> = {
       genre: 'THỂ LOẠI',
       players: 'SỐ NGƯỜI CHƠI',
       ratings: 'XẾP HẠNG',
+      viewOnSteam: 'Xem trên Steam Store',
+      viewOnPlayStation: 'Xem trên PlayStation Store',
+      viewOnNintendo: 'Xem trên Nintendo Store',
     },
     about: {
       title: 'Về Chúng Tôi',
@@ -174,7 +180,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     home: {
       gamesTitle: '2028',
       gamesSubtitle: 'GALAXY CHRONICLE: ECHOES OF STEARONE',
-      aboutTitle: 'Về chúng tôi',
+      aboutTitle: 'The Junk Squad',
       aboutSubtitle: 'From Scrap, We Forge Legends.',
       jobsTitle: 'JOBS',
       jobsSubtitle: 'JOIN US',
@@ -199,10 +205,13 @@ export const translations: Record<Locale, TranslationKeys> = {
       genre: 'GENRE',
       players: 'PLAYERS',
       ratings: 'RATINGS',
+      viewOnSteam: 'View on Steam Store',
+      viewOnPlayStation: 'View on PlayStation Store',
+      viewOnNintendo: 'View on Nintendo Store',
     },
     about: {
-      title: 'The Junk Squad',
-      subtitle: 'MEET THE TEAM',
+      title: 'About Us',
+      subtitle: 'Meet the Team',
       storyTitle: 'OUR STORY',
       storySubtitle: 'Building amazing experiences together',
       storyContent:
