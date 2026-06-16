@@ -10,7 +10,7 @@ export default function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer id="site-footer" className="bg-black border-t border-white/10 px-6 py-12 lg:px-10 lg:py-16">
+    <footer id="site-footer" className="border-t border-white/10 px-6 py-12 lg:px-10 lg:py-16">
       <div className="mx-auto grid w-full grid-rows-[auto_auto] gap-12 lg:gap-16">
         <div className="grid justify-items-center gap-8">
           <h3 className="brand-gradient-text relative inline-block pb-4 text-2xl font-bold">

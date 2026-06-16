@@ -10,7 +10,7 @@ export default function JobsPage() {
   const { t } = useLanguage()
 
   return (
-    <main className="min-h-screen bg-black text-white relative">
+    <main className="min-h-screen text-white relative">
       <Navigation />
       <Jobs />
       <ContentSection

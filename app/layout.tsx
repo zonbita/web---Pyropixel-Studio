@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body className={montserrat.className}>
+      <body className={`${montserrat.className} modern-cover-gradient min-h-screen`}>
         <Providers>{children}</Providers>
       </body>
     </html>

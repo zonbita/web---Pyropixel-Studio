@@ -10,7 +10,7 @@ export default function GamesPage() {
   const { t } = useLanguage()
 
   return (
-    <main className="relative min-h-screen bg-black text-white">
+    <main className="relative min-h-screen text-white">
       <Navigation />
       <SectionPreview
         id="games"
@@ -18,11 +18,12 @@ export default function GamesPage() {
         subtitle={t.games.subtitle}
         href="#galaxy-chronicle"
         slides={allGamesSlides}
+        showMoreButton={false}
       />
       <SectionPreview
         id="galaxy-chronicle"
-        title={t.home.gamesSubtitle}
-        subtitle={t.home.gamesTitle}
+        title={t.games.galaxyChronicleTitle}
+        subtitle={t.games.galaxyChronicleSubtitle}
         href="/games/galaxy-chronicle"
         slides={homePreviewSlides.games}
       />

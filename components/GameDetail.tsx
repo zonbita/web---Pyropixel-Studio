@@ -62,7 +62,7 @@ function GameDetailHero({ game }: { game: Game }) {
         className="absolute z-10 flex w-full flex-col items-center justify-center px-5 text-center"
         style={{ top: '42vh' }}
       >
-        <p className="hero-text-loaded text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
+        <p className="hero-text-loaded text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl md:text-5xl lg:text-5xl">
           {game.title}
         </p>
       </div>
@@ -93,11 +93,11 @@ function GameDetailDescription({ game }: { game: Game }) {
     <section
       id="game-description"
       ref={ref}
-      className="relative flex min-h-screen flex-col items-center justify-center bg-black px-6 py-20 md:px-12"
+      className="relative flex min-h-screen flex-col items-center justify-center px-6 py-20 md:px-12"
     >
       <InviewBlock isVisible={isVisible} delay="1" className="mx-auto max-w-4xl text-center">
         {game.logoImage && (
-          <div className="relative mx-auto mb-10 h-40 w-full max-w-3xl md:mb-12 md:h-56 lg:h-64">
+          <div className="relative mx-auto mb-10 h-52 w-full max-w-4xl md:mb-12 md:h-72 lg:h-80 xl:max-w-5xl">
             <Image
               src={game.logoImage}
               alt={game.logoAlt ?? game.title}
@@ -250,7 +250,7 @@ function GameDetailMeta({ game }: { game: Game }) {
   return (
     <section
       ref={ref}
-      className="relative bg-black px-6 py-20 md:px-12 md:py-32"
+      className="relative px-6 py-20 md:px-12 md:py-32"
     >
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 md:gap-y-14">
         {items.map((item, index) => (

@@ -16,7 +16,7 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
   }
 
   return (
-    <main className="relative min-h-screen bg-black text-white">
+    <main className="relative min-h-screen text-white">
       <Navigation />
       <GameDetail game={game} />
       <Footer />

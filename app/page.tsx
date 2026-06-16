@@ -14,7 +14,7 @@ export default function Home() {
   const { t } = useLanguage()
 
   return (
-    <main className="min-h-screen bg-black text-white relative">
+    <main className="min-h-screen text-white relative">
       <LoadingCover onHidden={() => setIsPageReady(true)} />
       <Navigation />
       <Hero isPageReady={isPageReady} />

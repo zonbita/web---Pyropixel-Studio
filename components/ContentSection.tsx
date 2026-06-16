@@ -8,7 +8,7 @@ interface ContentSectionProps {
 
 export default function ContentSection({ title, subtitle, content }: ContentSectionProps) {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-24 bg-black">
+    <section className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-24">
       <div className="relative z-20 w-full mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight">

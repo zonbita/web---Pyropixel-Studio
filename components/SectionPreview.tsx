@@ -15,6 +15,7 @@ interface SectionPreviewProps {
   href: string
   slides: PreviewSlide[]
   mobileSlides?: PreviewSlide[]
+  showMoreButton?: boolean
 }
 
 function InviewItem({
@@ -44,6 +45,7 @@ export default function SectionPreview({
   href,
   slides,
   mobileSlides,
+  showMoreButton = true,
 }: SectionPreviewProps) {
   const { ref, isVisible } = useInView(0.2)
   const { t } = useLanguage()
@@ -52,7 +54,7 @@ export default function SectionPreview({
     <section
       id={id}
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-24 bg-black overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-24 overflow-hidden"
     >
       <BackgroundCarousel
         desktopSlides={slides}
@@ -63,7 +65,7 @@ export default function SectionPreview({
       <div className="relative z-20 w-full mx-auto px-9">
         <div className="text-center mb-12 md:mb-16">
           <InviewItem isVisible={isVisible} delay="1">
-            <h2 className="mb-6 text-4xl font-bold tracking-tight md:mb-8 md:text-6xl lg:text-7xl">
+            <h2 className="mb-6 text-4xl font-bold tracking-tight md:mb-8 md:text-5xl lg:text-5xl">
               <Link
                 href={href}
                 className="brand-gradient-text relative inline-block pb-4 transition-opacity duration-300 hover:opacity-80"
@@ -83,9 +85,11 @@ export default function SectionPreview({
           </InviewItem>
         </div>
 
-        <InviewItem isVisible={isVisible} delay="3" className="text-center">
-          <MoreButton href={href} label={t.common.more} />
-        </InviewItem>
+        {showMoreButton && (
+          <InviewItem isVisible={isVisible} delay="3" className="text-center">
+            <MoreButton href={href} label={t.common.more} />
+          </InviewItem>
+        )}
       </div>
     </section>
   )

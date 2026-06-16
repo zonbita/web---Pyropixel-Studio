@@ -10,7 +10,7 @@ export default function AboutPage() {
   const { t } = useLanguage()
 
   return (
-    <main className="min-h-screen bg-black text-white relative">
+    <main className="min-h-screen text-white relative">
       <Navigation />
       <AboutUs />
       <ContentSection
