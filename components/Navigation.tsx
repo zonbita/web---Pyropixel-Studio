@@ -65,7 +65,7 @@ export default function Navigation() {
       <div className="w-full mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="drop-shadow-lg">
-            <Logo className="h-16 w-auto md:h-20" priority />
+            <Logo className="h-11 w-auto md:h-14" priority />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

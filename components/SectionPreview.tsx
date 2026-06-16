@@ -68,7 +68,7 @@ export default function SectionPreview({
             <h2 className="mb-6 text-4xl font-bold tracking-tight md:mb-8 md:text-5xl lg:text-5xl">
               <Link
                 href={href}
-                className="brand-gradient-text relative inline-block pb-4 transition-opacity duration-300 hover:opacity-80"
+                className="relative inline-block pb-4 text-white transition-opacity duration-300 hover:opacity-80"
               >
                 {title}
                 <span

@@ -31,7 +31,7 @@ export default function Hero({ isPageReady = false }: HeroProps) {
         }`}
         style={{ top: '42vh', paddingBottom: '30px' }}
       >
-        <p className="brand-gradient-text relative mb-3 inline-block pb-4 text-xl font-bold tracking-wide md:text-2xl lg:text-4xl">
+        <p className="relative mb-3 inline-block pb-4 text-xl font-bold tracking-wide text-white md:text-2xl lg:text-4xl">
           PYROPIXEL
           <span
             className="brand-gradient-line absolute bottom-0 left-0 h-0.5 w-full"
