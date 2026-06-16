@@ -34,14 +34,11 @@ function InviewBlock({
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <h2 className="relative inline-block pb-4 text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+    <h2 className="brand-gradient-text relative inline-block pb-4 text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl">
       {children}
       <span
-        className="absolute bottom-0 left-0 h-0.5 w-full"
-        style={{
-          background:
-            'linear-gradient(90deg, rgb(0, 203, 240) 0%, rgb(200, 100, 250) 33%, rgb(255, 87, 64) 66%, rgb(255, 187, 0) 100%)',
-        }}
+        className="brand-gradient-line absolute bottom-0 left-0 h-0.5 w-full"
+        aria-hidden="true"
       />
     </h2>
   )

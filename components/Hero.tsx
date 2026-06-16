@@ -31,14 +31,11 @@ export default function Hero({ isPageReady = false }: HeroProps) {
         }`}
         style={{ top: '42vh', paddingBottom: '30px' }}
       >
-        <p className="relative mb-3 inline-block pb-4 text-xl font-bold tracking-wide md:text-2xl lg:text-4xl">
+        <p className="brand-gradient-text relative mb-3 inline-block pb-4 text-xl font-bold tracking-wide md:text-2xl lg:text-4xl">
           PYROPIXEL STUDIO
           <span
-            className="absolute bottom-0 left-0 h-0.5 w-full"
-            style={{
-              background:
-                'linear-gradient(90deg, rgb(0, 203, 240) 0%, rgb(200, 100, 250) 33%, rgb(255, 87, 64) 66%, rgb(255, 187, 0) 100%)',
-            }}
+            className="brand-gradient-line absolute bottom-0 left-0 h-0.5 w-full"
+            aria-hidden="true"
           />
         </p>
         <h1 className="mt-3 text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">

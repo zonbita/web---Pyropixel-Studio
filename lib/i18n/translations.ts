@@ -92,13 +92,13 @@ export const translations: Record<Locale, TranslationKeys> = {
       switchToVi: 'Tiếng Việt',
     },
     hero: {
-      tagline: 'CHÚNG TÔI YÊU THÍCH TRÒ CHƠI!',
+      tagline: 'Kiến tạo những thế giới đáng để trải nghiệm!',
     },
     home: {
-      gamesTitle: 'TRÒ CHƠI',
-      gamesSubtitle: 'KHÁM PHÁ SẢN PHẨM',
-      aboutTitle: 'VỀ CHÚNG TÔI',
-      aboutSubtitle: 'GẶP GỠ ĐỘI NGŨ',
+      gamesTitle: '2028',
+      gamesSubtitle: 'GALAXY CHRONICLE: ECHOES OF STEARONE',
+      aboutTitle: 'The Junk Squad',
+      aboutSubtitle: 'Từ đống phế liệu, chúng tôi tạo nên những huyền thoại.',
       jobsTitle: 'TUYỂN DỤNG',
       jobsSubtitle: 'THAM GIA CÙNG CHÚNG TÔI',
       gamesPreviewAlt: 'Xem trước trò chơi',
@@ -124,8 +124,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       ratings: 'XẾP HẠNG',
     },
     about: {
-      title: 'VỀ CHÚNG TÔI',
-      subtitle: 'GẶP GỠ ĐỘI NGŨ',
+      title: 'Về Chúng Tôi',
+      subtitle: 'Gặp Gỡ Đội Ngũ',
       storyTitle: 'CÂU CHUYỆN',
       storySubtitle: 'Cùng nhau tạo nên trải nghiệm tuyệt vời',
       storyContent:
@@ -145,7 +145,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       officeAlt: 'Không gian văn phòng',
     },
     common: {
-      more: 'Xem thêm',
+      more: 'Xem chi tiết',
       followUs: 'THEO DÕI',
       privacyPolicy: 'Chính sách bảo mật',
       termsOfUse: 'Điều khoản sử dụng',
@@ -169,13 +169,13 @@ export const translations: Record<Locale, TranslationKeys> = {
       switchToVi: 'Tiếng Việt',
     },
     hero: {
-      tagline: "WE'RE ALL ABOUT PLAY!",
+      tagline: "CRAFTING WORLDS WORTH PLAYING!",
     },
     home: {
-      gamesTitle: 'GAMES',
-      gamesSubtitle: 'CHECK OUT OUR WORK',
-      aboutTitle: 'ABOUT US',
-      aboutSubtitle: 'MEET THE TEAM',
+      gamesTitle: '2028',
+      gamesSubtitle: 'GALAXY CHRONICLE: ECHOES OF STEARONE',
+      aboutTitle: 'Về chúng tôi',
+      aboutSubtitle: 'From Scrap, We Forge Legends.',
       jobsTitle: 'JOBS',
       jobsSubtitle: 'JOIN US',
       gamesPreviewAlt: 'Games preview',
@@ -201,7 +201,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       ratings: 'RATINGS',
     },
     about: {
-      title: 'ABOUT US',
+      title: 'The Junk Squad',
       subtitle: 'MEET THE TEAM',
       storyTitle: 'OUR STORY',
       storySubtitle: 'Building amazing experiences together',
@@ -222,7 +222,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       officeAlt: 'Office space',
     },
     common: {
-      more: 'More',
+      more: 'Details',
       followUs: 'FOLLOW US',
       privacyPolicy: 'Privacy Policy',
       termsOfUse: 'Terms of Use',

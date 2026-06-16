@@ -7,6 +7,40 @@ import { useScrollHeader } from '@/hooks/useScrollHeader'
 import { useLanguage } from '@/components/LanguageProvider'
 import Logo from '@/components/Logo'
 
+function isNavActive(pathname: string, href: string) {
+  return href === '/' ? pathname === '/' : pathname.startsWith(href)
+}
+
+interface NavLinkProps {
+  href: string
+  label: string
+  pathname: string
+  onClick?: () => void
+  className?: string
+}
+
+function NavLink({ href, label, pathname, onClick, className = '' }: NavLinkProps) {
+  const isActive = isNavActive(pathname, href)
+
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`relative inline-block pb-1 text-sm uppercase tracking-wider transition-colors drop-shadow-md hover:text-gray-300 ${
+        isActive ? 'text-white' : ''
+      } ${className}`}
+    >
+      {label}
+      {isActive && (
+        <span
+          className="brand-gradient-line absolute bottom-0 left-0 h-0.5 w-full"
+          aria-hidden="true"
+        />
+      )}
+    </Link>
+  )
+}
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
@@ -36,15 +70,7 @@ export default function Navigation() {
 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md ${
-                  pathname === item.href ? 'text-gray-300' : ''
-                }`}
-              >
-                {item.label}
-              </Link>
+              <NavLink key={item.href} href={item.href} label={item.label} pathname={pathname} />
             ))}
             <button
               type="button"
@@ -69,16 +95,13 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              <Link
+              <NavLink
                 key={item.href}
                 href={item.href}
+                label={item.label}
+                pathname={pathname}
                 onClick={() => setIsOpen(false)}
-                className={`text-sm uppercase tracking-wider hover:text-gray-300 transition-colors drop-shadow-md ${
-                  pathname === item.href ? 'text-gray-300' : ''
-                }`}
-              >
-                {item.label}
-              </Link>
+              />
             ))}
             <button
               type="button"

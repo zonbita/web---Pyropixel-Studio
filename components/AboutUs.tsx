@@ -8,7 +8,7 @@ export default function AboutUs() {
   const { t } = useLanguage()
 
   const teamImage = {
-    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop',
+    src: '/videos/Slider/photo_2026-05-25_12-46-18.jpg',
     alt: t.about.teamAlt,
   }
 

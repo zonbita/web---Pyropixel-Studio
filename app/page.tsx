@@ -28,7 +28,7 @@ export default function Home() {
       <SectionPreview
         title={t.home.aboutTitle}
         subtitle={t.home.aboutSubtitle}
-        href="/about"
+        href="/games/the-junk-squad"
         slides={homePreviewSlides.about}
       />
       <SectionPreview

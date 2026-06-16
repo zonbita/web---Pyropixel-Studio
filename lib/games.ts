@@ -59,6 +59,37 @@ export const GAMES: Game[] = [
     },
     storeUrl: '#',
   },
+  {
+    slug: 'the-junk-squad',
+    title: 'THE JUNK SQUAD',
+    description: {
+      vi: 'Từ đống phế liệu, chúng tôi tạo nên những huyền thoại. The Junk Squad là cuộc phiêu lưu sinh tồn đầy thử thách, nơi bạn và đội của mình chiến đấu, thu thập tài nguyên và khám phá thế giới hậu tận thế.',
+      en: 'From scrap, we forge legends. The Junk Squad is a gritty survival adventure where you and your squad fight, scavenge, and explore a post-apocalyptic world.',
+    },
+    heroPoster: slider(
+      'gpt-image-2_A_gritty_post-apocalyptic_scene_from_the_game_Back_4_Blood_with_a_group_of_four_-0.jpg',
+      'The Junk Squad hero',
+    ).src,
+    screenshots: [
+      slider(
+        'gpt-image-2_A_gritty_post-apocalyptic_scene_from_the_game_Back_4_Blood_with_a_group_of_four_-0.jpg',
+        'The Junk Squad gameplay',
+      ),
+      slider(
+        'gpt-image-2_A_gritty_post-apocalyptic_scene_from_the_game_Back_4_Blood_with_four_survivors_s-0.jpg',
+        'The Junk Squad squad',
+      ),
+    ],
+    meta: {
+      platform: { vi: 'PC, Console', en: 'PC, Console' },
+      releaseDate: 'TBA',
+      publisher: { vi: 'Pyropixel Studio', en: 'Pyropixel Studio' },
+      genre: { vi: 'Hành động, Sinh tồn', en: 'Action, Survival' },
+      players: '1-4',
+      ratings: { vi: '18+', en: 'Mature' },
+    },
+    storeUrl: '#',
+  },
 ]
 
 export function getGameBySlug(slug: string): Game | undefined {
