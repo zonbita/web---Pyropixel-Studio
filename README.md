@@ -1,6 +1,6 @@
 # Pyropixel Studio
 
-A modern Next.js website inspired by Team Asobi's design, featuring a clean, minimalist aesthetic with smooth scrolling sections.
+A modern Next.js website for Pyropixel Studio, featuring a clean, minimalist aesthetic with smooth scrolling sections.
 
 ## Features
 

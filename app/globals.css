@@ -118,7 +118,7 @@ body {
   animation: logo-beat 1s ease-in-out infinite alternate;
 }
 
-/* Hero text fade-in (matches Team Asobi #mv .text) */
+/* Hero text fade-in */
 .hero-text-hidden {
   opacity: 0;
   transform: translateY(30%);
@@ -161,27 +161,27 @@ body {
   transition-delay: 0.4s;
 }
 
-/* Home page typography — matches teamasobi.com */
-.home-hero-brand {
+/* Site typography */
+.site-hero-brand {
   font-size: 16px;
   line-height: 1;
   font-weight: 700;
 }
 
 @media (min-width: 768px) {
-  .home-hero-brand {
+  .site-hero-brand {
     font-size: 40px;
   }
 }
 
 @media (min-width: 960px) {
-  .home-hero-brand {
+  .site-hero-brand {
     font-size: 50px;
     font-weight: 800;
   }
 }
 
-.home-hero-tagline {
+.site-hero-tagline {
   margin-top: 12px;
   font-size: 36px;
   line-height: 1.22;
@@ -189,7 +189,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .home-hero-tagline {
+  .site-hero-tagline {
     margin-top: 17px;
     font-size: 52px;
     line-height: 1.23;
@@ -197,7 +197,7 @@ body {
 }
 
 @media (min-width: 960px) {
-  .home-hero-tagline {
+  .site-hero-tagline {
     margin-top: 15px;
     font-size: 60px;
     line-height: 1.33;
@@ -205,19 +205,19 @@ body {
   }
 }
 
-.home-section-title {
+.site-section-title {
   font-size: 16px;
   line-height: 1;
   font-weight: 700;
 }
 
 @media (min-width: 960px) {
-  .home-section-title {
+  .site-section-title {
     font-size: 24px;
   }
 }
 
-.home-section-subtitle {
+.site-section-subtitle {
   margin-top: 10px;
   font-size: 36px;
   line-height: 1.22;
@@ -225,7 +225,7 @@ body {
 }
 
 @media (min-width: 960px) {
-  .home-section-subtitle {
+  .site-section-subtitle {
     margin-top: 44px;
     font-size: 60px;
     line-height: 1.2;
@@ -233,7 +233,7 @@ body {
   }
 }
 
-/* More button — Team Asobi slide-right hover */
+/* More button slide-right hover */
 .more-button {
   display: block;
   position: relative;

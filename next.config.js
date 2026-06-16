@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/items',
+        destination: '/games/the-junk-squad/items',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
@@ -14,10 +23,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'img.youtube.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 's3.teamasobi.com',
       },
     ],
   },

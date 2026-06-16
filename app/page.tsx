@@ -24,21 +24,18 @@ export default function Home() {
         subtitle={t.home.gamesSubtitle}
         href="/games"
         slides={homePreviewSlides.games}
-        homeTypography
       />
       <SectionPreview
         title={t.about.title}
         subtitle={t.about.subtitle}
         href="/about"
         slides={homePreviewSlides.about}
-        homeTypography
       />
       <SectionPreview
         title={t.home.jobsTitle}
         subtitle={t.home.jobsSubtitle}
         href="/jobs"
         slides={homePreviewSlides.jobs}
-        homeTypography
       />
       <Footer />
     </main>

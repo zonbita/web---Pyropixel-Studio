@@ -35,10 +35,10 @@ export default function Games() {
 
       <div className="relative z-20 w-full mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 md:mb-8 tracking-tight drop-shadow-lg">
+          <h2 className="site-section-title mb-0 tracking-tight drop-shadow-lg">
             {t.games.title}
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-90 drop-shadow-md">
+          <p className="site-section-subtitle mb-8 opacity-90 drop-shadow-md md:mb-12">
             {t.games.subtitle}
           </p>
         </div>

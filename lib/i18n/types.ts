@@ -70,6 +70,43 @@ export type TranslationKeys = {
     pageContent: string
     officeAlt: string
   }
+  items: {
+    pageTitle: string
+    backHome: string
+    acquisition: string
+    powerTitle: string
+    emptyType: string
+    emptyFilter: string
+    previous: string
+    next: string
+    powerModes: {
+      pve: string
+      pvp: string
+      boss: string
+    }
+    filters: {
+      all: string
+      toggle: string
+      rarityGroup: string
+      typeGroup: string
+      categories: {
+        rifle: string
+        machinegun: string
+        sniper: string
+        shotgun: string
+        smg: string
+        equipment: string
+        melee: string
+        support: string
+      }
+      rarities: {
+        common: string
+        rare: string
+        epic: string
+        legendary: string
+      }
+    }
+  }
   common: {
     more: string
     followUs: string

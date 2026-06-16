@@ -11,11 +11,11 @@ export default function ContentSection({ title, subtitle, content }: ContentSect
     <section className="relative min-h-screen flex flex-col items-center justify-center py-16 md:py-24">
       <div className="relative z-20 w-full mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 md:mb-8 tracking-tight">
+          <h2 className="site-section-title mb-0 tracking-tight">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-90">
+            <p className="site-section-subtitle mb-8 opacity-90 md:mb-12">
               {subtitle}
             </p>
           )}

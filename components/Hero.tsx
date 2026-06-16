@@ -31,14 +31,14 @@ export default function Hero({ isPageReady = false }: HeroProps) {
         }`}
         style={{ top: '42vh', paddingBottom: '30px' }}
       >
-        <p className="home-hero-brand relative mb-3 inline-block pb-4 tracking-wide text-white">
+        <p className="site-hero-brand relative mb-3 inline-block pb-4 tracking-wide text-white">
           PYROPIXEL
           <span
             className="brand-gradient-line absolute bottom-0 left-0 h-0.5 w-full"
             aria-hidden="true"
           />
         </p>
-        <h1 className="home-hero-tagline drop-shadow-lg tracking-tight">
+        <h1 className="site-hero-tagline drop-shadow-lg tracking-tight">
           {t.hero.tagline}
         </h1>
       </div>

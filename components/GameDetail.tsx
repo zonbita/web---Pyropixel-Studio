@@ -62,7 +62,7 @@ function GameDetailHero({ game }: { game: Game }) {
         className="absolute z-10 flex w-full flex-col items-center justify-center px-5 text-center"
         style={{ top: '42vh' }}
       >
-        <p className="hero-text-loaded text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl md:text-5xl lg:text-5xl">
+        <p className="site-hero-tagline hero-text-loaded drop-shadow-lg tracking-tight">
           {game.title}
         </p>
       </div>

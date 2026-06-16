@@ -13,7 +13,7 @@ export default function Footer() {
     <footer id="site-footer" className="border-t border-white/10 px-6 py-12 lg:px-10 lg:py-16">
       <div className="mx-auto grid w-full grid-rows-[auto_auto] gap-12 lg:gap-16">
         <div className="grid justify-items-center gap-8">
-          <h3 className="relative inline-block pb-4 text-2xl font-bold text-white">
+          <h3 className="site-section-title relative inline-block pb-4 text-white">
             {t.common.followUs}
             <span
               className="brand-gradient-line absolute bottom-0 left-0 h-0.5 w-full"
