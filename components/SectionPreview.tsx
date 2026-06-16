@@ -16,6 +16,7 @@ interface SectionPreviewProps {
   slides: PreviewSlide[]
   mobileSlides?: PreviewSlide[]
   showMoreButton?: boolean
+  homeTypography?: boolean
 }
 
 function InviewItem({
@@ -46,9 +47,16 @@ export default function SectionPreview({
   slides,
   mobileSlides,
   showMoreButton = true,
+  homeTypography = false,
 }: SectionPreviewProps) {
   const { ref, isVisible } = useInView(0.2)
   const { t } = useLanguage()
+  const titleClass = homeTypography
+    ? 'home-section-title mb-0 tracking-tight'
+    : 'mb-6 text-4xl font-bold tracking-tight md:mb-8 md:text-5xl lg:text-5xl'
+  const subtitleClass = homeTypography
+    ? 'home-section-subtitle mb-8 opacity-90 drop-shadow-md md:mb-12'
+    : 'mb-8 text-lg font-bold opacity-90 drop-shadow-md md:mb-12 md:text-xl lg:text-2xl'
 
   return (
     <section
@@ -65,7 +73,7 @@ export default function SectionPreview({
       <div className="relative z-20 w-full mx-auto px-9">
         <div className="text-center mb-12 md:mb-16">
           <InviewItem isVisible={isVisible} delay="1">
-            <h2 className="mb-6 text-4xl font-bold tracking-tight md:mb-8 md:text-5xl lg:text-5xl">
+            <h2 className={titleClass}>
               <Link
                 href={href}
                 className="relative inline-block pb-4 text-white transition-opacity duration-300 hover:opacity-80"
@@ -79,7 +87,7 @@ export default function SectionPreview({
             </h2>
           </InviewItem>
           <InviewItem isVisible={isVisible} delay="2">
-            <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-90 drop-shadow-md font-bold">
+            <p className={subtitleClass}>
               {subtitle}
             </p>
           </InviewItem>

@@ -161,6 +161,78 @@ body {
   transition-delay: 0.4s;
 }
 
+/* Home page typography — matches teamasobi.com */
+.home-hero-brand {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .home-hero-brand {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 960px) {
+  .home-hero-brand {
+    font-size: 50px;
+    font-weight: 800;
+  }
+}
+
+.home-hero-tagline {
+  margin-top: 12px;
+  font-size: 36px;
+  line-height: 1.22;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .home-hero-tagline {
+    margin-top: 17px;
+    font-size: 52px;
+    line-height: 1.23;
+  }
+}
+
+@media (min-width: 960px) {
+  .home-hero-tagline {
+    margin-top: 15px;
+    font-size: 60px;
+    line-height: 1.33;
+    font-weight: 800;
+  }
+}
+
+.home-section-title {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+@media (min-width: 960px) {
+  .home-section-title {
+    font-size: 24px;
+  }
+}
+
+.home-section-subtitle {
+  margin-top: 10px;
+  font-size: 36px;
+  line-height: 1.22;
+  font-weight: 700;
+}
+
+@media (min-width: 960px) {
+  .home-section-subtitle {
+    margin-top: 44px;
+    font-size: 60px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+}
+
 /* More button — Team Asobi slide-right hover */
 .more-button {
   display: block;
